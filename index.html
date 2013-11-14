@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="icecreamApp"`>
+<head>
+  <meta charset="UTF-8">
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="http://code.angularjs.org/angular-1.0.1.min.js"></script>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" type="text/css" media="screen, projection" charset="utf-8">
+  <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+  <script src="mvc-example-angular.js"></script>
+  <title>アイスクリームショップ</title>
+</head>
+<body>
+  <div class="container" ng-controller="mainCtrl">
+    <h1>アイスクリームショップ</h1>
+    <form class="form-horizontal">
+      
+      <div class="form-group">
+        <label class="col-sm-2 control-label">重ね個数</label>
+        <div class="col-sm-2">
+          <select id="number" name="number" class="form-control" ng-model="number">
+            <option value="1">1個</option>
+            <option value="2" selected>2個</option>
+            <option value="3">3個</option>
+            <option value="4">4個</option>
+            <option value="5">5個</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label class="col-sm-2 control-label">種類</label>
+        <div id="icecreams" class="checkbox col-sm-10">
+          <div class="checkbox" ng-repeat="item in icecreamList">
+            <label>
+              <input type="checkbox" name="{{item.id}}" ng-click="onclickIcecream()">{{item.name}}
+            </label>
+          </div>
+         
+        </div>
+      </div>
+        
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button id="clear" class="btn btn-default">クリア</button>
+        </div>
+      </div>
+    </form>
+  
+    <div id="icecream-list">
+      {{selectionIcecream}}
+    </div>
+  </div>
+</body>
+</html>
