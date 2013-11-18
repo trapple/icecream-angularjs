@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="icecreamApp"`>
+<html lang="en" ng-app="icecreamApp">
 <head>
   <meta charset="UTF-8">
   <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -17,37 +17,32 @@
       <div class="form-group">
         <label class="col-sm-2 control-label">重ね個数</label>
         <div class="col-sm-2">
-          <select id="number" name="number" class="form-control" ng-model="number">
-            <option value="1">1個</option>
-            <option value="2" selected>2個</option>
-            <option value="3">3個</option>
-            <option value="4">4個</option>
-            <option value="5">5個</option>
-          </select>
+        <select id="number" name="number" class="form-control" ng-model="icecreamModel.number" 
+           ng-options="n.name for n in icecreamModel.numbers" ng-change="icecreamModel.clear()"></select>
         </div>
       </div>
       
+       <p>{{hoge}} </p>             
       <div class="form-group">
         <label class="col-sm-2 control-label">種類</label>
         <div id="icecreams" class="checkbox col-sm-10">
-          <div class="checkbox" ng-repeat="item in icecreamList">
+          <div class="checkbox" ng-repeat="item in icecreamModel.listAll">
             <label>
-              <input type="checkbox" name="{{item.id}}" ng-click="onclickIcecream()">{{item.name}}
+              <input type="checkbox" name="{{item.id}}" ng-model="item.selected" ng-click="icecreamModel.add(item)">{{item.name}}
             </label>
           </div>
-         
         </div>
       </div>
         
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-          <button id="clear" class="btn btn-default">クリア</button>
+          <button id="clear" class="btn btn-default" ng-click="icecreamModel.clear()">クリア</button>
         </div>
       </div>
     </form>
   
     <div id="icecream-list">
-      {{selectionIcecream}}
+      <h4>{{icecreamModel.outputView()}}</h4>
     </div>
   </div>
 </body>
