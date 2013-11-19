@@ -5,7 +5,7 @@ module.exports = function(config) {
   config.set({
 
     // base path, that will be used to resolve files and exclude
-    basePath: '',
+    basePath: '../',
 
 
     // frameworks to use
@@ -16,7 +16,7 @@ module.exports = function(config) {
     files: [
       'http://code.angularjs.org/angular-1.0.1.min.js',
       'http://code.angularjs.org/1.0.1/angular-mocks-1.0.1.js',
-      'js/*.js',
+      'app/js/*.js',
       'test/*.js'
     ],
 
