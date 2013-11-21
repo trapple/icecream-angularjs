@@ -27,7 +27,7 @@ icecreamApp.controller('mainCtrl', ['$scope', function ($scope) {
     // アイスクリームを選択リストに追加
     add: function (item) {
       var list = this.list;
-      list.push(item)
+      list.push(item);
       if( list.length > this.number.amount ){
         list.shift();
       }
@@ -51,7 +51,7 @@ icecreamApp.controller('mainCtrl', ['$scope', function ($scope) {
       var list = this.list;
       angular.forEach(list, function (val) {
         names.push(val.name);
-      })
+      });
       return names.join(" > "); 
     },
     selectionView: function(){
